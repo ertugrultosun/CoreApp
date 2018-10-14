@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +34,14 @@ namespace CoreApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+                services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromDays(7);
+            }
+            );
 
+            services.AddScoped<IUserManager, UserManager>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                              .AddControllersAsServices();
