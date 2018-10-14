@@ -10,8 +10,16 @@ namespace CoreApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MainContext _context;
+
+        public HomeController(MainContext context)
+        {
+            _context = context;
+            
+        }
         public IActionResult Index()
         {
+            ViewBag.Tesla = _context.CredentialTypes.ToList();
             return View();
         }
 
