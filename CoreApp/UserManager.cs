@@ -213,10 +213,9 @@ namespace CoreApp
         {
             List<Claim> claims = new List<Claim>();
             IEnumerable<long> roleIds = _context.UserRoles.Where(ur => ur.UserId == user.Id).Select(ur => ur.RoleId).ToList();
-
             if (roleIds != null)
             {
-                foreach (int roleId in roleIds)
+                foreach (long roleId in roleIds)
                 {
                     Roles role = this._context.Roles.Find(roleId);
 

@@ -11,16 +11,44 @@ namespace CoreApp.Controllers
     public class HomeController : Controller
     {
         private readonly MainContext _context;
+        private IUserManager userManager;
 
-        public HomeController(MainContext context)
+        public HomeController(MainContext context, IUserManager userManager)
         {
             _context = context;
-            
+            this.userManager = userManager;
+
         }
+
+  
         public IActionResult Index()
         {
             ViewBag.Tesla = _context.CredentialTypes.ToList();
             return View();
+        }
+
+        public IActionResult Test()
+        {
+           
+            return View("Test");
+        }
+
+        [HttpPost]
+        public IActionResult Login()
+        {
+            ValidateResult validateResult = this.userManager.Validate("Email", "admin@example.com", "admin");
+
+            if (validateResult.Success)
+                this.userManager.SignIn(this.HttpContext, validateResult.User, false);
+
+            return this.RedirectToAction("Test");
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            this.userManager.SignOut(this.HttpContext);
+            return this.RedirectToAction("Test");
         }
 
         public IActionResult About()
