@@ -1,13 +1,13 @@
 ﻿@* Copyright © 2017 Dmitry Sikorsky. All rights reserved. *@
 @* Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information. *@
-@model CoreApp.ViewModels.Home.TestViewModel
+@model CoreApp.Models.Users
 @inject CoreApp.IUserManager UserManager
 @using System.Security.Claims
 <h1>ASP.NET Core<br />Custom User Manager</h1>
 <div class="form__field field">
     <span class="marker marker--secondary">User.Identity.IsAuthenticated:</span> @User.Identity.IsAuthenticated
 </div>
-@if (this.User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated)
 {
     <div class="form__field field">
         <span class="marker marker--secondary">UserManager.GetCurrentUser(this.Context).Name:</span> @UserManager.GetCurrentUser(this.Context).Name
@@ -19,7 +19,7 @@
         <span class="marker marker--secondary">User.HasClaim("Permission", "DoEverything"):</span> @User.HasClaim("Permission", "DoEverything")
     </div>
 }
-@if (this.User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated)
 {
     <form class="form" action="/home/logout" method="post">
         <div class="form__buttons buttons">

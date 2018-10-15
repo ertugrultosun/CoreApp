@@ -34,7 +34,10 @@ namespace CoreApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-                services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            services.AddDbContext<MainContext>(options =>
+                  options.UseSqlite("Data Source=CoreApp.db"));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
                 options.ExpireTimeSpan = TimeSpan.FromDays(7);
@@ -46,8 +49,7 @@ namespace CoreApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                              .AddControllersAsServices();
 
-            services.AddDbContext<MainContext>(options =>
-                  options.UseSqlite("Data Source=CoreApp.db"));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +65,8 @@ namespace CoreApp
                 app.UseHsts();
             }
 
+
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

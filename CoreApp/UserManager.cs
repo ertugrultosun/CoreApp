@@ -191,7 +191,7 @@ namespace CoreApp
 
         public Users GetCurrentUser(HttpContext httpContext)
         {
-            int currentUserId = this.GetCurrentUserId(httpContext);
+            long currentUserId = this.GetCurrentUserId(httpContext);
 
             if (currentUserId == -1)
                 return null;
@@ -234,7 +234,7 @@ namespace CoreApp
 
             if (permissionIds != null)
             {
-                foreach (int permissionId in permissionIds)
+                foreach (long permissionId in permissionIds)
                 {
                     Permissions permission = this._context.Permissions.Find(permissionId);
 

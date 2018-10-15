@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CoreApp.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
 
 namespace CoreApp.Controllers
 {
@@ -20,17 +23,10 @@ namespace CoreApp.Controllers
 
         }
 
-  
+        [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Tesla = _context.CredentialTypes.ToList();
-            return View();
-        }
-
-        public IActionResult Test()
-        {
-           
-            return View("Test");
+            return this.View();
         }
 
         [HttpPost]
@@ -41,17 +37,18 @@ namespace CoreApp.Controllers
             if (validateResult.Success)
                 this.userManager.SignIn(this.HttpContext, validateResult.User, false);
 
-            return this.RedirectToAction("Test");
+            return this.RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Logout()
         {
             this.userManager.SignOut(this.HttpContext);
-            return this.RedirectToAction("Test");
+            return this.RedirectToAction("Index");
         }
+    
 
-        public IActionResult About()
+    public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 
