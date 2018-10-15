@@ -8,6 +8,7 @@ using CoreApp.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace CoreApp.Controllers
 {
@@ -26,6 +27,16 @@ namespace CoreApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            try
+            {
+                ViewBag.user = this.userManager.GetCurrentUser(HttpContext);
+            }
+            catch (Exception)
+            {
+
+              
+            }
+            
             return this.View();
         }
 
