@@ -9,6 +9,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoreApp.Controllers
 {
@@ -27,17 +28,24 @@ namespace CoreApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            try
+            Users user = new Users();
+            if (this.User.Identity.IsAuthenticated)
             {
-                ViewBag.user = this.userManager.GetCurrentUser(HttpContext);
+                user = this.userManager.GetCurrentUser(HttpContext);
+                return this.RedirectToAction("Main");
             }
-            catch (Exception)
+            else
             {
-
-              
+                return this.View();
             }
             
             return this.View();
+        }
+
+        [Authorize]
+        public IActionResult Main()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -58,21 +66,6 @@ namespace CoreApp.Controllers
             return this.RedirectToAction("Index");
         }
     
-
-    public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();

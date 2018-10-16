@@ -41,6 +41,7 @@ namespace CoreApp
             .AddCookie(options =>
             {
                 options.ExpireTimeSpan = TimeSpan.FromDays(7);
+                options.LoginPath = "/Home";
             }
             );
 
