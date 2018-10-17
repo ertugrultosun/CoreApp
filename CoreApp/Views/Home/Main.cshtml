@@ -1,7 +1,16 @@
-﻿
+﻿@inject CoreApp.IUserManager UserManager
+@using System.Security.Claims
 @{
     ViewData["Title"] = "Main";
 }
+
+<div class="jumbotron jumbotron-fluid animated">
+    <div class="container">
+        <h1 class="display-4">Welcome @UserManager.GetCurrentUser(this.Context).Name</h1>
+        <p class="lead" style="color:white;">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+</div>
+
 
 <button type="button" id="sidebarCollapse" class="btn btn-info">
     <i class="fas fa-align-left"></i>

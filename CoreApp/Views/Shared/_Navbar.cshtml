@@ -1,65 +1,79 @@
-﻿<nav id="sidebar">
+﻿<nav id="sidebar" class="active">
     <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
-        <strong>BS</strong>
+        <h3>👻 CoreApp</h3>
+        <strong>👻</strong>
     </div>
 
     <ul class="list-unstyled components">
-        <li class="active">
+        <li >
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="fas fa-home"></i>
-                Home
+                <i class="fas fa-plus fa-2x"></i>
             </a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Home 1</a>
+                    <a data-toggle="modal" data-target="#addnote">Note</a>
+                    
                 </li>
                 <li>
-                    <a href="#">Home 2</a>
+                    <a href="#">Finance</a>
                 </li>
                 <li>
-                    <a href="#">Home 3</a>
+                    <a href="#">Book</a>
+                </li>
+                <li>
+                    <a href="#">Account</a>
                 </li>
             </ul>
         </li>
         <li>
             <a href="#">
-                <i class="fas fa-briefcase"></i>
-                About
+                <i class="fas fa-book fa-2x"></i>
+                
             </a>
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="fas fa-copy"></i>
-                Pages
+                <i class="fas fa-piggy-bank fa-2x"></i>
+                
             </a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
-                    <a href="#">Page 1</a>
+                    <a href="#">Dash</a>
                 </li>
                 <li>
-                    <a href="#">Page 2</a>
+                    <a href="#">Acts</a>
                 </li>
                 <li>
-                    <a href="#">Page 3</a>
+                    <a href="#">Accounts</a>
                 </li>
             </ul>
         </li>
         <li>
             <a href="#">
-                <i class="fas fa-image"></i>
-                Portfolio
+                <i class="fas fa-comments fa-2x"></i>
+                
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fas fa-question"></i>
-                FAQ
+                <i class="fas fa-cog fa-2x"></i>
+                
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class="fas fa-paper-plane"></i>
-                Contact
+            
+            <a href="#pagSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-user fa-2x"></i>
+
             </a>
+            <ul class="collapse list-unstyled" id="pagSubmenu">
+                <li>
+                    <a href="#">Profile</a>
+                </li>
+                <li>
+                   
+                            <a  href="/home/logout">Logout</a>
+
+                </li>
+            </ul>
         </li>
     </ul>
 
@@ -72,3 +86,33 @@
         </li>
     </ul>
 </nav>
+<script>
+    function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+
+<div class="modal fade" id="addnote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel-2">Title goes here</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ligula id sem tristique ultrices eget id neque. Duis enim turpis, tempus at accumsan vitae, lobortis id sapien. Pellentesque nec orci mi, in pharetra ligula. Nulla facilisi. Nulla facilisi. Mauris convallis venenatis massa, quis consectetur felis ornare quis. Sed aliquet nunc ac ante molestie ultricies. Nam pulvinar ultricies bibendum.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dialog" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-dialog">Ok</button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div>

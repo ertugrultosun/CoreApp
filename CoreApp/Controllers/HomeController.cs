@@ -26,6 +26,7 @@ namespace CoreApp.Controllers
         }
 
         [HttpGet]
+        
         public IActionResult Index()
         {
             Users user = new Users();
@@ -43,6 +44,7 @@ namespace CoreApp.Controllers
         }
 
         [Authorize]
+        [Route("")]
         public IActionResult Main()
         {
             return View();
@@ -59,7 +61,7 @@ namespace CoreApp.Controllers
             return this.RedirectToAction("Index");
         }
 
-        [HttpPost]
+        
         public IActionResult Logout()
         {
             this.userManager.SignOut(this.HttpContext);
