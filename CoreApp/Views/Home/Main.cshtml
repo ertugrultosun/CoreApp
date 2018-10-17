@@ -1,4 +1,5 @@
 ﻿@inject CoreApp.IUserManager UserManager
+@model CoreApp.ViewModels.Home.MainViewModel
 @using System.Security.Claims
 @{
     ViewData["Title"] = "Main";
@@ -11,9 +12,131 @@
     </div>
 </div>
 
+<div class="container-fluid">
 
-<button type="button" id="sidebarCollapse" class="btn btn-info">
-    <i class="fas fa-align-left"></i>
-    <span>Toggle Sidebar</span>
-</button>
+    <br />
+    <h1 class="display-4" style="border-left: 6px solid #7386D5;    padding-left: 10px;">     Highlights</h1><br /><br /><br />
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="mainstream notice shadow notice-success">
+                <strong>Notes</strong>
+                <br />
+                <div class="row" style="    margin-top: 20px;">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr onclick="location.href='/Main/NoteDetail/11';">
+                                <td>Deneme notu</td>
+                            </tr>
+                            <tr onclick="location.href='/Main/NoteDetail/12';">
+                                <td>&#x130;lk d&#xFC;zg&#xFC;n eklenebilen not</td>
+                            </tr>
+                            <tr onclick="location.href='/Main/NoteDetail/14';">
+                                <td>&#xDC;&#xE7;&#xFC;nc&#xFC; d&#xFC;zg&#xFC;n eklenebilen not</td>
+                            </tr>
+                            <tr onclick="location.href='/Main/NoteDetail/18';">
+                                <td>Test Notu</td>
+                            </tr>
+                            <tr onclick="location.href='/Main/NoteDetail/19';">
+                                <td>ViewBag&#x27;den kurtul!</td>
+                            </tr>
+                            <tr onclick="location.href='/Main/NoteDetail/20';">
+                                <td>Tesla</td>
+                            </tr>
+                            <tr onclick="location.href='/Main/NoteDetail/23';">
+                                <td>view tipine ge&#xE7;tikten sonraki ilk not</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="mainstream notice shadow notice-danger">
+                <strong>Reminders</strong>
+                <br />
+                <div class="row" style="    margin-top: 20px;">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>Bu ilk hat&#x131;rlatma notu</td>
+                            </tr>
+                            <tr>
+                                <td>ba&#x15F;ka bir notebook</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="mainstream notice shadow notice-info">
+                <strong>Comminacitons</strong>
+                <p class="lead">You have 4 unread messages. </p>
+                <div class="row">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Title</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>Mark</td>
+                                <td>Otto</td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="mainstream notice shadow notice-warning">
+                <strong>Finance</strong>
+                <p class="lead">Updated rates</p>
+                <div class="row">
+                    <table class="table table-hover">
+
+                        <tbody>
+                            <tr>
+                                <td>US Dollar</td>
+                                <td>5,5849</td>
+                                <td>5,5934</td>
+                            </tr>
+                            <tr>
+                                <td>Euro</td>
+                                <td>5,5849</td>
+                                <td>5,5934</td>
+                            </tr>
+                            <tr>
+                                <td>Pound</td>
+                                <td>5,5849</td>
+                                <td>5,5934</td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />  <br /><br />
+    <h1 class="display-4" style="border-left: 6px solid #7386D5;    padding-left: 10px;">     Timeline</h1><br />
+    <br />
+</div>
+
+</div>
 

@@ -1,15 +1,324 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Landing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+    <link href="/css/Landing.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>CoreApp - Welcome!</title>
 </head>
 <body>
+    <div class="ui container">
+        <br />
+        <div class="ui secondary  menu" style="color:white;">
+            <a class="active item">
+                <h2 style="color:white;">👻 CoreApp</h2>
+            </a>
+            <a class="item">
+                <h4 style="color:white;">About</h4>
+            </a>
+            <a class="item">
+                <h4 style="color:white;">Services</h4>
+            </a>
+            <a class="item">
+                <h4 style="color:white;">Contact</h4>
+            </a>
+            <div class="right menu" id="test1">
+                <a class="active item">
+                    <h4 style="color:white;">Sign Up</h4>
+                </a>
+            </div>
+        </div>
+        <div class="ui grid">
+            <div class="eleven wide column">
+                <div>
+                    <h2 class="typewrite" data-period="2000" style="font-size: 440%;
+    margin-top: 40%;" data-type='[ "Hi, Im Core.", "Take notes, be productive", "Collaborate with others", "Make more easier","Manage finance acts" ]'>
+                        <span class="wrap"></span>
+                    </h2>
+                </div>
+                <div style="margin-top: 50%;"><h4 class="active item">Made with ❤️</h4> </div>
+
+            </div>
+            <div class="five wide column" style=" margin-top: 17%;">
+
+                <div class="ui attached icon message">
+                    <i class="sign-in icon"></i>
+                    <div class="header">
+                        Welcome to CoreApp!
+                    </div>
+
+                </div>
+                <form method="post" class="ui form attached fluid segment" action="/Home/Login">
+                    <div class="field">
+                        <label>Email</label>
+                        <input type="text" id="Identifier" name="Identifier" value="">
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="password" id="Secret" name="Secret">
+                    </div>
+                    <div class="inline field">
+                        <div class="ui segment">
+                            <div class="field">
+                                <div class="ui toggle checkbox">
+                                    <input type="checkbox">
+                                    <label>Remember me on this computer</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div><div>
+                        <button class="ui  positive right labeled icon fluid button" type="submit">
+                            Login
+
+                        </button>
+                    </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8D3YlEoZ9I1HsZ3My7jowKgkrCEkq6UP150C_uxZfYBMI_wmbUlHNLZieW3BWoh06_YHKyis6LXezfHhoAuhVJ375sd00QM0m51S7IKBx87RUbOgzvLLSbRjiC4u-dpT7rrkAmJ89-xq3nFtWxGjDd0" />
+                </form><a href="#">
+                    <div class="ui bottom attached warning message" type="button" id="test">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Please feel free to<b>  Sign Up!</b>  Yep, it's free.
+
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui modal test">
+
+            <div class="header">
+                Register
+            </div>
+            <div class="content">
+
+                <form method="post" class="ui form" action="/Home/Register">
+                    <div class="field">
+                        <label>Name</label>
+
+                        <div class="field">
+                            <input name="Name" type="text" placeholder="First Name" id="Name" value="">
+                        </div>
+
+
+                    </div>
+
+                    <div class="field">
+                        <label>Email</label>
+                        <div class="two fields">
+                            <div class="field">
+                                <input type="email" placeholder="Please enter your email address." id="Identifier" name="Identifier" value="">
+                            </div>
+                            <div class="field">
+                                <input type="email" placeholder="Enter Again">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Password</label>
+                        <div class="two fields">
+                            <div class="field">
+                                <input type="password" placeholder="Please enter your strong password." id="Secret" name="Secret">
+                            </div>
+                            <div class="field">
+                                <input type="password" name="shipping[last-name]" placeholder="Enter Again">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="ui icon message">
+                        <i class="shield alternate icon"></i>
+                        <div class="content">
+                            <div class="header">
+                                All informations are secured.
+                            </div>
+                            <ul class="list">
+                                <li><p>We're not sharing any data or information with others about you.</p></li>
+                                <li><p> Please read our terms and conditions & GDPR policy. Please <b>click here.</b></p></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="right actions" style="margin-left: 70%;">
+                        <div class="ui black deny button">
+                            Nope
+                        </div>
+                        <button type="submit" class="ui positive right labeled icon button yardimci">
+                            Yep, Register
+                            <i class="check icon"></i>
+                        </button>
+
+                    </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8D3YlEoZ9I1HsZ3My7jowKgkrCEkq6UP150C_uxZfYBMI_wmbUlHNLZieW3BWoh06_YHKyis6LXezfHhoAuhVJ375sd00QM0m51S7IKBx87RUbOgzvLLSbRjiC4u-dpT7rrkAmJ89-xq3nFtWxGjDd0" />
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+<script>
+    $('.yardimci')
+        .popup()
+        ;
+
+    $('.ui.checkbox')
+        .checkbox()
+        ;
+
+    $(document).ready(function () {
+        $('.ui.formaaaaaa')
+            .form({
+                fields: {
+                    name: {
+                        identifier: 'Name',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter your name'
+                            }
+                        ]
+                    },
+                    Surname: {
+                        identifier: 'Surname',
+                        rules: [
+                            {
+                                type: 'minCount[2]',
+                                prompt: 'Please select at least two skills'
+                            }
+                        ]
+                    },
+
+                    UserName: {
+                        identifier: 'UserName',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter a username'
+                            }
+                        ]
+                    },
+                    password: {
+                        identifier: 'password',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter a password'
+                            },
+                            {
+                                type: 'minLength[6]',
+                                prompt: 'Your password must be at least {ruleValue} characters'
+                            }
+                        ]
+                    },
+                    terms: {
+                        identifier: 'terms',
+                        rules: [
+                            {
+                                type: 'checked',
+                                prompt: 'You must agree to the terms and conditions'
+                            }
+                        ]
+                    }
+                }
+            })
+            ;
+
+
+
+        $('.tesla')
+            .popup()
+            ;
+    });
+
+
+    $(function () {
+        $("#test").click(function () {
+            $(".test").modal('show');
+        });
+        $(".test").modal({
+            closable: true
+        });
+        $("#test1").click(function () {
+            $(".test").modal('show');
+        });
+        $(".test").modal({
+            closable: true
+        });
+    });
+
+
+    var TxtType = function (el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+
+        setTimeout(function () {
+            that.tick();
+        }, delta);
+    };
+
+    window.onload = function () {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i = 0; i < elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+                new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
 </html>
+

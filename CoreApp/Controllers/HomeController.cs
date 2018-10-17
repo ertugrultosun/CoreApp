@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using CoreApp.ViewModels.Home;
 
 namespace CoreApp.Controllers
 {
@@ -29,6 +30,7 @@ namespace CoreApp.Controllers
         
         public IActionResult Index()
         {
+            
             Users user = new Users();
             if (this.User.Identity.IsAuthenticated)
             {
@@ -37,17 +39,20 @@ namespace CoreApp.Controllers
             }
             else
             {
-                return this.View();
+                return View("Landing");
+
             }
-            
-            return this.View();
         }
+
 
         [Authorize]
         [Route("")]
         public IActionResult Main()
         {
-            return View();
+            Users user = new Users();
+            user = this.userManager.GetCurrentUser(HttpContext);
+            MainViewModel main = new MainViewModel();
+            return this.View(main);
         }
 
         [HttpPost]

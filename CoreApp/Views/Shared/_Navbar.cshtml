@@ -1,18 +1,19 @@
-﻿<nav id="sidebar" class="active">
+﻿@model CoreApp.ViewModels.Home.MainViewModel
+<nav id="sidebar" class="active" >
     <div class="sidebar-header">
         <h3>👻 CoreApp</h3>
         <strong>👻</strong>
     </div>
 
     <ul class="list-unstyled components">
-        <li >
+        <li>
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-plus fa-2x"></i>
             </a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
                     <a data-toggle="modal" data-target="#addnote">Note</a>
-                    
+
                 </li>
                 <li>
                     <a href="#">Finance</a>
@@ -28,11 +29,11 @@
         <li>
             <a href="#">
                 <i class="fas fa-book fa-2x"></i>
-                
+
             </a>
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-piggy-bank fa-2x"></i>
-                
+
             </a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
@@ -49,17 +50,17 @@
         <li>
             <a href="#">
                 <i class="fas fa-comments fa-2x"></i>
-                
+
             </a>
         </li>
         <li>
             <a href="#">
                 <i class="fas fa-cog fa-2x"></i>
-                
+
             </a>
         </li>
         <li>
-            
+
             <a href="#pagSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-user fa-2x"></i>
 
@@ -69,8 +70,8 @@
                     <a href="#">Profile</a>
                 </li>
                 <li>
-                   
-                            <a  href="/home/logout">Logout</a>
+
+                    <a href="/home/logout">Logout</a>
 
                 </li>
             </ul>
@@ -88,21 +89,21 @@
 </nav>
 <script>
     function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
     }
-}
 </script>
 
 
-<div class="modal fade" id="addnote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-2">
-    <div class="modal-dialog" role="document">
+<div class="modal modal-message modal-success fade" id="addnote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-2">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel-2">Title goes here</h4>
+                <h4 class="modal-title">Add Note</h4>
             </div>
 
             <div class="modal-body">
