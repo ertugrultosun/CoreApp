@@ -23,14 +23,12 @@ namespace CoreApp.Controllers
         {
             _context = context;
             this.userManager = userManager;
-
         }
 
+
         [HttpGet]
-        
         public IActionResult Index()
         {
-            
             Users user = new Users();
             if (this.User.Identity.IsAuthenticated)
             {
@@ -40,7 +38,6 @@ namespace CoreApp.Controllers
             else
             {
                 return View("Landing");
-
             }
         }
 
@@ -56,16 +53,25 @@ namespace CoreApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login()
+        public IActionResult Login(string Identifier, string Secret)
         {
-            ValidateResult validateResult = this.userManager.Validate("Email", "admin@example.com", "admin");
-
+            //ValidateResult validateResult = this.userManager.Validate("Email", "admin@example.com", "admin");
+            ValidateResult validateResult = this.userManager.Validate("Email", Identifier, Secret);
             if (validateResult.Success)
                 this.userManager.SignIn(this.HttpContext, validateResult.User, false);
-
             return this.RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult Register(string Identifier, string Secret, string Name)
+        {
+            if (_context.Credentials.Where(m=> m.Identifier == Identifier) == null)
+            {
+                userManager.SignUp(Name, "Email", Identifier, Secret);
+                Login(Identifier, Secret);
+            }
+            return this.RedirectToAction("Index");
+        }
         
         public IActionResult Logout()
         {
